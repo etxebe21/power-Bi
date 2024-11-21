@@ -26,7 +26,7 @@ export default function Register() {
             <Head title="Register" />
 
             <form onSubmit={submit}>
-                <div>
+                {/* <div>
                     <InputLabel htmlFor="name" value="Name" />
 
                     <TextInput
@@ -41,7 +41,7 @@ export default function Register() {
                     />
 
                     <InputError message={errors.name} className="mt-2" />
-                </div>
+                </div> */}
 
                 <div className="mt-4">
                     <InputLabel htmlFor="email" value="Email" />
