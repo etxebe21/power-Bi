@@ -18,6 +18,41 @@ class MedidoresController extends Controller
         return $lecturas;
     }
 
+    // //obtener ultima lectura idcontador
+    // public function getValoresLecturaContador($array){
+    //     $response = array();
+    //     $lecturas = DB::connection('mysql_monitorizacion')->table('contadores')->selectRaw('ID_CONTADOR, ULTIMA_LECTURA, FECHA')->whereIn('ID_CONTADOR', $array)->get();
+    //     foreach($lecturas as $lectura){
+    //         $index = array_search($lectura->ID_CONTADOR, $array);
+    //         $response[$index]=$lectura;
+    //     }
+    //     return $response;
+    // }
+
+    // public function getMedidores(){
+    //     $listavinculaciones = array();
+    //     $medidores =  DB::table('medidores')
+    //     ->join('viviendas', 'medidores.ID_VIVIENDA', 'viviendas.ID_VIVIENDA')
+    //     ->join('edificios', 'viviendas.ID_EDIFICIO', 'edificios.ID_EDIFICIO')
+    //     ->join('ficha_edificio', 'ficha_edificio.ID_EDIFICIO', 'edificios.ID_EDIFICIO')
+    //     ->join('proyectos', 'edificios.ID_PROYECTO', 'proyectos.ID_PROYECTO')
+    //     ->join('medidores_tipos', 'medidores.TIPO_MEDIDOR', 'medidores_tipos.ID_TIPO_MEDIDOR')
+    //     ->get();
+    //     foreach($medidores as $medidor){
+    //         if($medidor->ID_DISPOSITIVO!=null){
+    //             $listavinculaciones[$medidor->ID_MEDIDOR]=$medidor->ID_DISPOSITIVO;
+    //         }
+    //     }
+    //     $valorescontadores = $this->getValoresLecturaContador($listavinculaciones);
+    //     foreach($medidores as $medidor){
+    //         if(isset($valorescontadores[$medidor->ID_MEDIDOR])){
+    //             $medidor->ULTIMA_LECTURA=$valorescontadores[$medidor->ID_MEDIDOR]->ULTIMA_LECTURA;
+    //             $medidor->FECHA_ULTIMA_LECTURA=$valorescontadores[$medidor->ID_MEDIDOR]->FECHA;
+    //         }
+    //     }
+    //     return $medidores;
+    // }
+
     public function getMedidores(){
         $listavinculaciones = array();
         $medidores =  DB::table('medidores')
@@ -58,7 +93,7 @@ class MedidoresController extends Controller
                 $listavinculaciones[$medidor->ID_MEDIDOR]=$medidor->ID_DISPOSITIVO;
             }
         }
-        $valorescontadores = $this->getValoresLecturaContadoor($listavinculaciones);
+        $valorescontadores = $this->getValoresLecturaContador($listavinculaciones);
         foreach($medidores as $medidor){
             if(isset($valorescontadores[$medidor->ID_MEDIDOR])){
                 $medidor->ULTIMA_LECTURA=$valorescontadores[$medidor->ID_MEDIDOR]->ULTIMA_LECTURA;
@@ -83,7 +118,7 @@ class MedidoresController extends Controller
                     $listavinculaciones[$medidor->ID_MEDIDOR]=$medidor->ID_DISPOSITIVO;
                 }
             }
-            $valorescontadores = $this->getValoresLecturaContadoor($listavinculaciones);
+            $valorescontadores = $this->getValoresLecturaContador($listavinculaciones);
             foreach($medidores as $medidor){
                 if(isset($valorescontadores[$medidor->ID_MEDIDOR])){
                     $medidor->ULTIMA_LECTURA=$valorescontadores[$medidor->ID_MEDIDOR]->ULTIMA_LECTURA;

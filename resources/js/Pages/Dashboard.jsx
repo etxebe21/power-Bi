@@ -50,6 +50,9 @@ export default function Dashboard() {
                                 <StyledButton href="/medidores">
                                     Ver Medidores
                                 </StyledButton>
+                                <StyledButton href="/lecturas">
+                                    Ver LECTURAS
+                                </StyledButton>
                             </ButtonContainer>
                         </div>
                     </div>

@@ -61,6 +61,18 @@ class RoutesController extends Controller
         ]);
 
     }
+
+    public function lecturas()
+    {
+        $lecturas = (new LecturasController)->getDICIEMBRE(1);
+        //print_r($lecturas);
+
+        // Enviar los datos estructurados a la vista de Inertia
+        return Inertia::render('Proyectos/Lecturas', [
+            'lecturas' => $lecturas,
+        ]);
+
+    }
     
 }
 
