@@ -50,5 +50,17 @@ class RoutesController extends Controller
             'proyectos' => $proyectosAgrupados,
         ]);
     }
+
+    public function medidores()
+    {
+        $medidores = (new MedidoresController)->getMedidores();
+
+        // Enviar los datos estructurados a la vista de Inertia
+        return Inertia::render('Proyectos/Medidores', [
+            'medidores' => $medidores,
+        ]);
+
+    }
+    
 }
 

@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/proyectos', [RoutesController::class, 'proyectos'])->name('proyectos');
+Route::get('/medidores', [RoutesController::class, 'medidores'])->name('medidores');
 Route::get('/edificios', [RoutesController::class, 'edificios'])->name('edificios');
 Route::get('/viviendas', [RoutesController::class, 'viviendas'])->name('viviendas');
 

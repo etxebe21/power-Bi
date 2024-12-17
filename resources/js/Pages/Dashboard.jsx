@@ -47,6 +47,9 @@ export default function Dashboard() {
                                 <StyledButton href="/proyectos">
                                     Ver Proyectos
                                 </StyledButton>
+                                <StyledButton href="/medidores">
+                                    Ver Medidores
+                                </StyledButton>
                             </ButtonContainer>
                         </div>
                     </div>
